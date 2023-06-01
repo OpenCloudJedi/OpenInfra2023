@@ -65,9 +65,9 @@ Below is a summary of the user names and passwords used in the environment:
 +===========+=============+==========================================+
 | stack	    | b00tcamp	  | Linux CLI user                           |
 +-----------+-------------+------------------------------------------+
-| demo	    | OpenInfra	  | OpenStack user with Member privileges    |
+| demo	    | nova  	  | OpenStack user with Member privileges    |
 +-----------+-------------+------------------------------------------+
-| admin	    | OpenInfra	  | OpenStack user with admin privileges     |
+| admin	    | nova  	  | OpenStack user with admin privileges     |
 +-----------+-------------+------------------------------------------+
 | cirros	| gocubsgo	  | User for instances based on CirrOS image |
 +-----------+-------------+------------------------------------------+
@@ -82,12 +82,15 @@ In this exercise you will deploy the Devstack configuration with the Strigo VM's
 :step:`Step 2:`  Switch from the ``ubuntu`` user to the ``stack`` user: 
 
 .. code-block:: console
+
     [ubuntu@vlab ~] $ sudo su - stack
 
 .. code-block:: console
+    
     [ubuntu@vlab ~] $ cd ~/devstack
 
 .. code-block:: console
+    
     [ubuntu@vlab ~] $ pwd
     /opt/stack/devstack
 
@@ -96,6 +99,7 @@ In this exercise you will deploy the Devstack configuration with the Strigo VM's
 Note: this script will run approx. 15-30 min, please let the process complete without any other interaction to the Strigo VM before moving to the next step.
 
 .. code-block:: console
+    
     [ubuntu@vlab ~] $ ./stack.sh
 
     (Partial output)
