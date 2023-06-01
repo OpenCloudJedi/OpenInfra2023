@@ -87,11 +87,11 @@ In this exercise you will deploy the Devstack configuration with the Strigo VM's
 
 .. code-block:: console
     
-    [ubuntu@vlab ~] $ cd ~/devstack
+    [stack@vlab ~] $ cd ~/devstack
 
 .. code-block:: console
     
-    [ubuntu@vlab ~] $ pwd
+    [stack@vlab ~] $ pwd
     /opt/stack/devstack
 
 :step:`Step 3:` Run the devstack script. This will verify components and apply the local.conf changes to all of the OpenStack components installed:
@@ -100,7 +100,7 @@ Note: this script will run approx. 15-30 min, please let the process complete wi
 
 .. code-block:: console
     
-    [ubuntu@vlab ~] $ ./stack.sh
+    [stack@vlab ~] $ ./stack.sh
 
     (Partial output)
     ...
