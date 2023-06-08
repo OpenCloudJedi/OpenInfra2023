@@ -60,17 +60,17 @@ In various lab steps of this guide you will need to specify the user name and th
 
 Below is a summary of the user names and passwords used in the environment:
 
-+-----------+-------------+------------------------------------------+
-| User Name |	Password  |	Description                              |
-+===========+=============+==========================================+
-| stack	    | b00tcamp	  | Linux CLI user                           |
-+-----------+-------------+------------------------------------------+
-| demo	    | nova  	  | OpenStack user with Member privileges    |
-+-----------+-------------+------------------------------------------+
-| admin	    | nova  	  | OpenStack user with admin privileges     |
-+-----------+-------------+------------------------------------------+
-| cirros	| gocubsgo	  | User for instances based on CirrOS image |
-+-----------+-------------+------------------------------------------+
++-----------+----------+------------------------------------------+
+| User Name | Password |               Description                |
++===========+==========+==========================================+
+| stack     | b00tcamp | Linux CLI user                           |
++-----------+----------+------------------------------------------+
+| demo      | nova     | OpenStack user with Member privileges    |
++-----------+----------+------------------------------------------+
+| admin     | nova     | OpenStack user with admin privileges     |
++-----------+----------+------------------------------------------+
+| cirros    | gocubsgo | User for instances based on CirrOS image |
++-----------+----------+------------------------------------------+
 
 Deploy Devstack Components
 --------------------------
