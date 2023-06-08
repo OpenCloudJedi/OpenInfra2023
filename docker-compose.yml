@@ -1,0 +1,10 @@
+#docker compose file to create a new container image from the local Dockerfile and mount the _build dir as the /docs/_build dir in the container. 
+services:
+   builder:
+     build: .
+     environment:
+        COURSE: "OpenInfra2023"
+        COURSENAME: "OpenInfra Workshop"
+        VERSION: "1.0"
+     volumes:
+       - ./_build:/docs/_build
