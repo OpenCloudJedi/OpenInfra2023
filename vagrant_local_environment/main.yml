@@ -1,0 +1,77 @@
+---
+- name: Configure Base Ubuntu Box for DevStack
+  hosts: all
+  become: yes
+  connection: local
+  vars:
+    openstack_release: stable/2023.1
+
+  tasks:
+
+    - name: Install all the software needed
+      apt:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - bash-completion
+        - vim
+        - git
+        - docker.io
+        - python3-pip
+        - net-tools
+        - apt-transport-https 
+        - ca-certificates
+        
+
+    - name: Create the stack user
+      user:
+        name: stack
+        groups: docker
+        create_home: yes
+        home: /opt/stack
+        shell: /bin/bash
+        password: "{{ 'b00tcamp' | password_hash('sha512') }}"
+
+    - name: Add stack user to sudoers
+      copy:
+        dest: /etc/sudoers.d/stack
+        content: "stack ALL=(ALL) NOPASSWD: ALL"
+
+    - name: Disable update package list in the /etc/apt.conf.d/20auto-upgrades file
+      lineinfile:
+        dest: "/etc/apt/apt.conf.d/20auto-upgrades"
+        regexp: '^APT::Periodic::Update-Package-Lists "1";'
+        line: APT::Periodic::Update-Package-Lists "0";
+
+    - name: Disable unattended upgrade in the /etc/apt.conf.d/20auto-upgrades file
+      lineinfile:
+        dest: "/etc/apt/apt.conf.d/20auto-upgrades"
+        regexp: '^APT::Periodic::Unattended-Upgrade "1";'
+        line: APT::Periodic::Unattended-Upgrade "0";
+
+    - name: Clone DevStack github repo
+      git:
+        repo: https://opendev.org/openstack/devstack
+        dest: /opt/stack/devstack
+        version: "{{ openstack_release }}"
+
+    - name: Change ownership of devstack files recursively
+      file:
+        dest: /opt/stack
+        owner: stack
+        group: stack
+        recurse: yes
+
+        #    - name: Set cloudconfig to preserve hostname
+        #      lineinfile:
+        #        dest: /etc/cloud/cloud.cfg
+        #        regexp: '^preserve_hostname: false'
+        #        line: 'preserve_hostname: true'
+        #    - name: Configure hostname
+        #      hostname:
+        #        name: vlab
+        #        use: systemd
+
+        #    - name: Install the correct version of setuptools
+        #      pip:
+        #        name: setuptools==60.9.3

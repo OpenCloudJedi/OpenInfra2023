@@ -49,9 +49,21 @@ Scroll down in the file and remove the comments (Hash marks on the beginning of 
 
 Save the file and exit.
 
+Next let's add some additional service definitions to our config. These instructions tell the glance service to ``show multiple locations`` after the glance service has been deployed. This is done at the bottom of the configuration file in the post-build section. The second post-config option we have chosen is a Horizon setting to allow glance locations with the URL option. Since each service is rebuilt when we restack our configuration, the changes must be made in this file and ingested by the Devstack installer and applied once th service is installed again. Add the following lines to the bottom of the ``local.conf`` file:
 
-Deploy OpenStack with the additional Heat services
---------------------------------------------------
+.. code-block:: console
+
+    [[post-config|$GLANCE_API_CONF]]
+    [DEFAULT]
+    show_multiple_locations = true
+
+    [[post-config|$HORIZON_CONF]]
+    [DEFAULT]
+    IMAGES_ALLOW_LOCATION = True
+
+
+Deploy OpenStack with the additional Heat services and post-config
+------------------------------------------------------------------
 
 Now that we have edited the main configuration file for devstack located at ``/opt/stack/devstack/local.conf``, you are now ready to deploy OpenStack once more with the additional services we enabled in the previous step.
 
@@ -96,4 +108,5 @@ In this lab, you:
 
 - Unstacked and removed all OpenStack services
 - Edited the devstack configuration file and added 2 more services
+- Added post-config options to alter service behavior
 - Logged into the Dashboard UI to verify the new Orchestration section is present.
