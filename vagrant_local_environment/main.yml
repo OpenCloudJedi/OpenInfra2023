@@ -62,6 +62,8 @@
         group: stack
         recurse: yes
 
+#### The following section is used when building in AWS infra. 
+#### Not needed for this deployment of Devstack so we can leave it commented.
         #    - name: Set cloudconfig to preserve hostname
         #      lineinfile:
         #        dest: /etc/cloud/cloud.cfg
@@ -71,7 +73,3 @@
         #      hostname:
         #        name: vlab
         #        use: systemd
-
-        #    - name: Install the correct version of setuptools
-        #      pip:
-        #        name: setuptools==60.9.3

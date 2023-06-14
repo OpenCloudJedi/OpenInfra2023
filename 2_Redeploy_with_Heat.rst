@@ -5,7 +5,7 @@ Now that we have the foundation of an OpenStack deployment, we will explore the 
 
 - Unstacking the environment resetting all services
 - Editing the local.conf file used by Devstack during deployment
-- Deploying OpenStack again with additional components
+- Deploying OpenStack again with additional components and configuration.
 - Login to the OpenStack UI again to verify new Heat components are present
 
 Unstack OpenStack deployment

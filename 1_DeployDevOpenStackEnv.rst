@@ -121,7 +121,7 @@ Note: this script will run approx. 15-30 min, please let the process complete wi
     Horizon is now available at http://172.xx.xx.xx/dashboard (The Dynamic DNS name should be used in place of the 172.xx.xx.x for labs.)
     Keystone is serving at http://172.xx.xx.xx/identity/
     The default users are: admin and demo
-    The password: OpenInfra
+    The password: nova
     ...
     DevStack Version: zed
     Change: c6f810e61d51fe07b483693a2d6f95eb5546a9ed Merge "Move process-stackviz role from Tempest
@@ -139,5 +139,5 @@ Summary
 
 In this lab, you:
 
-Connected to the Strigo vlab environment
-Ran a script to configure the OpenStack components with the Private IP address using our default local.conf configuration file
+- Connected to the Strigo vlab environment
+- Ran a script to configure the OpenStack components with the Private IP address using our default local.conf configuration file
