@@ -105,7 +105,7 @@ You can also use the VirtualBox console to interact with the VMs or through a te
 
 The local.conf files were not added to the ansible build script so that they can be experimented with and altered before stacking. The Controller and ComputeNode files are included in this directory as a starting point.
 `compute-local.conf`
-`controler-local.conf`
+`controller-local.conf`
 They would need to be put in the ``/opt/stack/devstack/`` directory for the 2 servers and renamed to ``local.conf``. Also note that the Controller node needs to be fully stacked before starting the stack.sh script on the ComputeNode as it needs to call to and get a response from the Identity service (Keystone) before it will successfully stack.
 
 ## System Details:
